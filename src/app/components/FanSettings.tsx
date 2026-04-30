@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useAppStore, type Oshi, type Anniversary } from '../store';
-import { Plus, Trash2, Youtube } from 'lucide-react';
+import { Plus, Trash2, Youtube, ExternalLink } from 'lucide-react';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router';
 
@@ -71,10 +71,18 @@ export function FanSettings() {
               onChange={(e) => setNewChannel(e.target.value)}
               onBlur={() => setChannelTouched(true)}
               placeholder="YouTubeチャンネルURL"
-              className={`w-full pl-10 pr-4 py-3 rounded-xl border bg-white focus:outline-none ${
+              className={`w-full pl-10 pr-10 py-3 rounded-xl border bg-white focus:outline-none ${
                 channelTouched && !isChannelValid ? 'border-red-300 focus:border-red-400' : 'border-sky-200 focus:border-sky-400'
               }`}
             />
+            <button
+              type="button"
+              onClick={() => window.open('https://www.youtube.com/feed/channels', '_blank')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-sky-300 hover:text-sky-500 transition-colors"
+              title="登録チャンネルを表示する"
+            >
+              <ExternalLink className="w-4 h-4" />
+            </button>
           </div>
           {channelTouched && !isChannelValid && (
             <p className="text-red-400" style={{ fontSize: '0.8rem' }}>
