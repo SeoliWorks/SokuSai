@@ -3,6 +3,8 @@
 
 <img width="803" height="496" alt="Pic-2" src="https://github.com/user-attachments/assets/bc75ab88-86b3-44df-bb50-4eb974d129fa" />
 
+## デモサイトは[こちらから](https://seoliworks.github.io/SokuSai/)
+
 # SokuSai - 息災
 
 「推しの休止期間中や活動終了後などに元気で生きてほしいという気持ちを行動に移したい」「表舞台に出ていないときでも誰かが自分のことを想っていてくれているということを実感できるようにしたい」という想いで構想した企画案です。現在、フロントエンドのみの実装となります。
@@ -36,7 +38,6 @@
 ### 追記事項
 
 * 起動は「npm run dev」により行えます。
-* [Figmaコミュニティ](https://www.figma.com/community/file/1621810288451571605)で基本動作が確認できます。
 * Google/YouTube Data APIの利用制限（クォータ）と超過時のコストを事前に考慮した設計が必要となります。
 
 ### 但し書き
