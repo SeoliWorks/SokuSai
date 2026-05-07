@@ -54,7 +54,7 @@ const today = () => new Date().toISOString().split('T')[0];
 
 export const useAppStore = create<AppState>()(
   persist(
-    (set) => ({
+    (set, get) => ({
       user: null,
       isOshi: false,
       setUser: (user) => set({ user }),
@@ -77,17 +77,28 @@ export const useAppStore = create<AppState>()(
 
       hasTodayPaper: true,
       todaySent: false,
-      sendPaper: () => set((s) => {
-        if (!s.selectedOshiId) return s;
-        return { todaySent: true, stamps: [...s.stamps, { date: today(), oshiId: s.selectedOshiId }] };
-      }),
+      sendPaper: () => {
+        const s = get();
+        if (!s.selectedOshiId) return;
+        s.addStamp({ date: today(), oshiId: s.selectedOshiId });
+        set({ todaySent: true });
+      },
       resetDaily: () => set({ hasTodayPaper: true, todaySent: false }),
 
       stamps: [],
-      addStamp: (s) => set((st) => ({ stamps: [...st.stamps, s] })),
+      addStamp: (stamp) => set((s) => ({ stamps: [...s.stamps, stamp] })),
       stampCardImage: null,
       setStampCardImage: (url) => set({ stampCardImage: url }),
     }),
-    { name: 'sokusai-storage' }
+    {
+      name: 'sokusai-storage',
+      partialize: (s) => ({
+        oshiList: s.oshiList,
+        anniversaries: s.anniversaries,
+        stamps: s.stamps,
+        stampCardImage: s.stampCardImage,
+        selectedOshiId: s.selectedOshiId,
+      }),
+    }
   )
 );

@@ -77,7 +77,7 @@ export function FanSettings() {
             />
             <button
               type="button"
-              onClick={() => window.open('https://www.youtube.com/feed/channels', '_blank')}
+              onClick={() => window.open('https://www.youtube.com/feed/channels', '_blank', 'noopener,noreferrer')}
               className="absolute right-3 top-1/2 -translate-y-1/2 text-sky-300 hover:text-sky-500 transition-colors"
               title="登録チャンネルを表示する"
             >

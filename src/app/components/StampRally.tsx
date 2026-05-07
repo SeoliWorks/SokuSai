@@ -13,9 +13,8 @@ export function StampRally() {
   const [previewMode, setPreviewMode] = useState(false);
 
   const filledCount = stamps.length;
-  const currentPage = Math.floor(filledCount / GRID_SIZE);
-  const remainder = filledCount % GRID_SIZE;
-  const currentPageStamps = filledCount > 0 && remainder === 0 ? GRID_SIZE : remainder;
+  const currentPage = filledCount === 0 ? 0 : Math.floor((filledCount - 1) / GRID_SIZE);
+  const currentPageStamps = filledCount === 0 ? 0 : ((filledCount - 1) % GRID_SIZE) + 1;
 
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

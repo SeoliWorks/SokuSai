@@ -20,4 +20,6 @@ export const router = createBrowserRouter([
   },
   { path: '/oshi', Component: OshiDashboard },
   { path: '*', element: createElement(Navigate, { to: '/', replace: true }) },
-]);
+], {
+  basename: import.meta.env.BASE_URL.replace(/\/$/, ''),
+});
