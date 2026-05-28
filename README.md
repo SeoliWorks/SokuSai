@@ -3,7 +3,7 @@
 
 <img width="803" height="496" alt="Pic-2" src="https://github.com/user-attachments/assets/bc75ab88-86b3-44df-bb50-4eb974d129fa" />
 
-## デモサイトは[こちらから](https://seoliworks.github.io/SokuSai/)
+## デモサイトは[こちらから](https://blueshrimp-dev.github.io/SokuSai/)
 
 # SokuSai - 息災
 
